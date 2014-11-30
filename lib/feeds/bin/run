@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+
+/**
+  * Module dependencies.
+  */
+var Worker = require('../lib/');
+
+
+// exec
+
+var worker = new Worker;
+worker.work();

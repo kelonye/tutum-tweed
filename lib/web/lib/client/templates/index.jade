@@ -1,0 +1,71 @@
+.container-fluid
+
+  .row-fluid.top
+
+    .col-sm-6
+      h3.text-center
+        | Feeds
+        | {{#if controller.feedsUpdate.length}}
+        <a href='javascript:' {{action 'loadUpdates' 'feeds'}} class='x-load'>
+        &nbsp;
+        i.glyphicon.glyphicon-arrow-down
+        | {{controller.feedsUpdate.length}}
+        </a>
+        | {{/if}}
+    .col-sm-6
+      h3.text-center
+        | Twitter
+        | {{#if controller.tweetsUpdate.length}}
+        <a href='javascript:' {{action 'loadUpdates' 'tweets'}} class='x-load'>
+        &nbsp;
+        i.glyphicon.glyphicon-arrow-down
+        | {{controller.tweetsUpdate.length}}
+        </a>
+        | {{/if}}
+    .clearfix
+
+  .row-fluid
+    .col-sm-6.left
+      | {{#each feed in controller.feeds}}
+      <div {{action 'readMore' feed}} class='feed'>
+      .feed-title {{{feed.title}}}
+      .feed-summary {{{feed.summary}}}
+      .feed-meta {{feed.feed}} - {{date-time date=feed.date}}
+      </div>
+      | {{/each}}
+      br
+      .text-center
+        <button class='btn btn-default' {{action 'paginate' 'feeds'}}>
+        | load more
+        </button>
+    .col-sm-6.right
+      | {{#each tweet in controller.tweets}}
+      .tweet.row-fluid
+        .col-sm-1.text-right.tweet-image
+          | {{#twitter-profile handle=tweet.user_handle}}
+          <img {{bind-attr src=tweet.user_avatar}} />
+          | {{/twitter-profile}}
+        .col-sm-11
+          .tweet-name
+            | {{#twitter-profile handle=tweet.user_handle}}
+            | {{tweet.user}} - {{date-time date=tweet.date}}
+            | {{/twitter-profile}}
+          .tweet-text {{tweet.text}}
+        .clearfix
+      | {{/each}}
+      br
+      .text-center
+        <button class='btn btn-default' {{action 'paginate' 'tweets'}}>
+        | load more
+        </button>
+    .clearfix
+
+.component-drawer.component-drawer-left
+
+  <span class='x' {{action 'hideLeftDrawer'}}>✕</span>
+
+  .component-drawer-right-inner
+
+    h3 {{selectedFeed.title}}
+    | {{{selectedFeed.description}}}
+  

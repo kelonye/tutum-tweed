@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+
+/**
+  * Module dependencies.
+  */
+var config = require('config');
+var debug = require('debug')('app:web');
+
+// app
+
+var app = require('../lib/server');
+
+// bind
+
+app.listen(config.port);
+
+debug('started app on port %d', config.port);

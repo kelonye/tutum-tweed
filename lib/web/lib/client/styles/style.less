@@ -1,0 +1,104 @@
+@import "../styles/bootstrap";
+@import "../styles/mixins";
+@import "../styles/variables";
+
+#nprogress .bar{
+  z-index: 1000000 !important;
+}
+
+#nprogress .bar {
+  background: @nprogress-color !important;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px @nprogress-color, 0 0 5px @nprogress-color !important;
+}
+
+#nprogress .spinner-icon {
+  border-top-color: @nprogress-color !important;
+  border-left-color: @nprogress-color !important;
+}
+
+body {
+}
+
+.top, .left, .right,{
+  position: fixed;
+}
+
+.top{
+  top: 0;
+  width: 100%;
+}
+
+.left, .right{
+  top: 70px;
+  overflow-y: auto;
+  height: 100%;
+  padding-bottom: 100px;
+}
+
+.left{
+  left: 0;
+}
+
+.right{
+  right: 0;
+}
+
+.x-load{
+  font-size: 13px;
+  &, &:hover, &:visited, &:focus{
+    color: #ccc;
+    text-decoration: none;
+  }
+}
+
+.feed{
+  cursor: pointer;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+  .feed-title{
+    padding-bottom: 5px;
+    color: #000;
+  }
+  .feed-summary{
+    color: #777;
+    img{
+      display: block;
+      padding-bottom: 5px;
+    }
+  }
+}
+
+.tweet{
+  border-bottom: 1px solid #ddd;
+  .tweet-image{
+    padding: 10px 0;
+    img{
+      border-radius: 3px;
+    }
+  }
+  .tweet-name{
+    padding: 6px 0;
+    a{
+      &, &:hover, &:visited, &:focus{
+        color: #000;
+      }
+    }
+  }
+  .tweet-text{
+    color: #777;
+    padding: 0 0 10px;
+  }
+}
+
+.component-drawer-left{
+  width: 800px;
+  left: -840px;
+  padding-left: 40px;
+  img{
+    display: block;
+    padding-bottom: 5px;
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "name": "app",
+  "dependencies": {
+    "kelonye/ember": "1.7.0",
+    "segmentio/sse": "0.0.5",
+    "kelonye/ember-drawer": "0.0.7",
+    "kelonye/ember-link": "0.0.3"
+  },
+  "scripts": [
+    "index.js",
+    "views.js",
+    "models.js",
+    "routes.js",
+    "templates.js",
+    "controllers.js",
+
+    "vendor/moment.js",
+    "vendor/bootstrap/js/button.js",
+    "vendor/bootstrap/js/alert.js",
+    "vendor/bootstrap/js/transition.js"
+
+  ],
+  "styles": [
+    "vendor/nprogress.css"
+  ],
+  "less": [
+    "styles/style"
+  ],
+  "jade": [
+    "templates/application",
+    "templates/index",
+    "templates/components-date-time"
+  ],
+  "images": [
+
+  ],
+  "files": [
+    "vendor/nprogress.js"
+  ],
+  "fonts": [
+    "vendor/bootstrap/fonts/glyphicons-halflings-regular.svg",
+    "vendor/bootstrap/fonts/glyphicons-halflings-regular.ttf",
+    "vendor/bootstrap/fonts/glyphicons-halflings-regular.eot",
+    "vendor/bootstrap/fonts/glyphicons-halflings-regular.woff"
+  ],
+
+  "dump": [
+
+    "vendor/bootstrap/js/collapse.js",
+    "vendor/bootstrap/js/modal.js",
+    "vendor/bootstrap/js/tab.js",
+    "vendor/bootstrap/js/affix.js",
+    "vendor/bootstrap/js/dropdown.js",
+    "vendor/bootstrap/js/scrollspy.js",
+    "vendor/bootstrap/js/popover.js",
+    "vendor/bootstrap/js/tooltip.js"
+
+  ]
+}

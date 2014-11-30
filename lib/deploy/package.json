@@ -1,0 +1,8 @@
+{
+  "name": "app",
+  "dependencies": {
+    "batch": "^0.5.1",
+    "debug": "^1.0.3",
+    "superagent": "^0.18.2"
+  }
+}
