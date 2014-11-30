@@ -1,3 +1,12 @@
-.tweet
-  | {{text}}
-  | {{user.name}}
+.tweet.row-fluid
+  .col-sm-1.text-right.tweet-image
+    | {{#twitter-profile handle=user_handle}}
+    <img {{bind-attr src=user_avatar}} />
+    | {{/twitter-profile}}
+  .col-sm-11
+    .tweet-name
+      | {{#twitter-profile handle=user_handle}}
+      | {{user}} - {{date-time date=date}}
+      | {{/twitter-profile}}
+    .tweet-text {{text}}
+  .clearfix

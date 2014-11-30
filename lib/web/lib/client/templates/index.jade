@@ -26,33 +26,14 @@
 
   .row-fluid
     .col-sm-6.left
-      | {{#each feed in controller.feeds}}
-      <div {{action 'readMore' feed}} class='feed'>
-      .feed-title {{{feed.title}}}
-      .feed-summary {{{feed.summary}}}
-      .feed-meta {{feed.feed}} - {{date-time date=feed.date}}
-      </div>
-      | {{/each}}
+      | {{view App.FeedsListView content=feeds}}
       br
       .text-center
         <button class='btn btn-default' {{action 'paginate' 'feeds'}}>
         | load more
         </button>
     .col-sm-6.right
-      | {{#each tweet in controller.tweets}}
-      .tweet.row-fluid
-        .col-sm-1.text-right.tweet-image
-          | {{#twitter-profile handle=tweet.user_handle}}
-          <img {{bind-attr src=tweet.user_avatar}} />
-          | {{/twitter-profile}}
-        .col-sm-11
-          .tweet-name
-            | {{#twitter-profile handle=tweet.user_handle}}
-            | {{tweet.user}} - {{date-time date=tweet.date}}
-            | {{/twitter-profile}}
-          .tweet-text {{tweet.text}}
-        .clearfix
-      | {{/each}}
+      | {{view App.TweetsListView content=tweets}}
       br
       .text-center
         <button class='btn btn-default' {{action 'paginate' 'tweets'}}>
