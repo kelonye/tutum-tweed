@@ -5,9 +5,11 @@ This is a demo of easy deployment of a simple node.js application using [Tutum](
 
 ![](https://dl.dropbox.com/u/30162278/tweed.png)
 
+![](https://dl.dropbox.com/u/30162278/tweed-drawer.png)
+
 #### Demo
 
-Visit http://9d58c4cd-kelonye.node.tutum.io
+Visit [http://9d58c4cd-kelonye.node.tutum.io](http://9d58c4cd-kelonye.node.tutum.io)
 
 #### Deploying
 
