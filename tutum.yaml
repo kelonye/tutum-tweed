@@ -1,0 +1,53 @@
+---
+
+cluster:
+  name: tweed-dev
+  region: ams2
+  node_type: 512mb
+  target_num_nodes: 1
+
+services:
+
+- name: redis
+  image: "tutum.co/{{USER}}/redis"
+  path: lib/redis
+  target_num_containers: 1
+
+- name: web
+  image: "tutum.co/{{USER}}/web"
+  path: lib/web
+  target_num_containers: 1
+  container_ports:
+    - inner_port: 80
+      outer_port: 80
+      port_name: http
+      protocol: tcp
+      published: true
+  container_envvars:
+    - key: PORT
+      value: 80
+  require:
+    - redis
+
+- name: tweets
+  image: "tutum.co/{{USER}}/tweets"
+  path: lib/tweets
+  target_num_containers: 1
+  container_envvars:
+    - key: TWEED_TWITTER_CONSUMER_KEY
+      value: "{{TWEED_TWITTER_CONSUMER_KEY}}"
+    - key: TWEED_TWITTER_CONSUMER_SECRET
+      value: "{{TWEED_TWITTER_CONSUMER_SECRET}}"
+    - key: TWEED_TWITTER_ACCESS_TOKEN
+      value: "{{TWEED_TWITTER_ACCESS_TOKEN}}"
+    - key: TWEED_TWITTER_ACCESS_TOKEN_SECRET
+      value: "{{TWEED_TWITTER_ACCESS_TOKEN_SECRET}}"
+  require:
+    - redis
+
+- name: feeds
+  image: "tutum.co/{{USER}}/feeds"
+  path: lib/feeds
+  target_num_containers: 1
+  require:
+    - redis

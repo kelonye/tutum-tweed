@@ -3,6 +3,7 @@
   "dependencies": {
     "batch": "^0.5.1",
     "debug": "^1.0.3",
+    "js-yaml": "^3.2.3",
     "superagent": "^0.18.2"
   }
 }
