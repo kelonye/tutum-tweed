@@ -2,7 +2,7 @@ FROM dockerfile/nodejs
 
 ADD . /data 
 
-WORKDIR /data/lib/web
+WORKDIR /data
 
 RUN make deps build
 

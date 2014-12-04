@@ -1,53 +1,48 @@
 ---
 
 cluster:
-  name: tweed-dev
+  name: "{{CLUSTER}}"
   region: ams2
-  node_type: 512mb
-  target_num_nodes: 1
+  type: 512mb
+  nodes: 1
 
 services:
 
 - name: redis
   image: "tutum.co/{{USER}}/redis"
-  path: lib/redis
-  target_num_containers: 1
-
-- name: web
-  image: "tutum.co/{{USER}}/web"
-  path: lib/web
-  target_num_containers: 1
-  container_ports:
-    - inner_port: 80
-      outer_port: 80
-      port_name: http
-      protocol: tcp
-      published: true
-  container_envvars:
-    - key: PORT
-      value: 80
-  require:
-    - redis
+  build: lib/redis
+  containers: 1
 
 - name: tweets
   image: "tutum.co/{{USER}}/tweets"
-  path: lib/tweets
-  target_num_containers: 1
-  container_envvars:
-    - key: TWEED_TWITTER_CONSUMER_KEY
-      value: "{{TWEED_TWITTER_CONSUMER_KEY}}"
-    - key: TWEED_TWITTER_CONSUMER_SECRET
-      value: "{{TWEED_TWITTER_CONSUMER_SECRET}}"
-    - key: TWEED_TWITTER_ACCESS_TOKEN
-      value: "{{TWEED_TWITTER_ACCESS_TOKEN}}"
-    - key: TWEED_TWITTER_ACCESS_TOKEN_SECRET
-      value: "{{TWEED_TWITTER_ACCESS_TOKEN_SECRET}}"
+  build: lib/tweets
+  containers: 1
+  env:
+    TWEED_TWITTER_CONSUMER_KEY: "{{TWEED_TWITTER_CONSUMER_KEY}}"
+    TWEED_TWITTER_CONSUMER_SECRET: "{{TWEED_TWITTER_CONSUMER_SECRET}}"
+    TWEED_TWITTER_ACCESS_TOKEN: "{{TWEED_TWITTER_ACCESS_TOKEN}}"
+    TWEED_TWITTER_ACCESS_TOKEN_SECRET: "{{TWEED_TWITTER_ACCESS_TOKEN_SECRET}}"
   require:
     - redis
 
 - name: feeds
   image: "tutum.co/{{USER}}/feeds"
-  path: lib/feeds
-  target_num_containers: 1
+  build: lib/feeds
+  containers: 1
+  require:
+    - redis
+
+- name: web
+  image: "tutum.co/{{USER}}/web"
+  build: lib/web
+  containers: 1
+  ports:
+    - inner_port: 80
+      outer_port: 80
+      port_name: http
+      protocol: tcp
+      published: true
+  env:
+    PORT: 80
   require:
     - redis
