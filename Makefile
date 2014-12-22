@@ -1,10 +1,3 @@
-OPTS=\
-	TUTUM_CLUSTER=$(TWEED_CLUSTER)\
-	TUTUM_TWEED_TWITTER_CONSUMER_KEY=$(TWEED_TWITTER_CONSUMER_KEY)\
-	TUTUM_TWEED_TWITTER_CONSUMER_SECRET=$(TWEED_TWITTER_CONSUMER_SECRET)\
-	TUTUM_TWEED_TWITTER_ACCESS_TOKEN=$(TWEED_TWITTER_ACCESS_TOKEN)\
-	TUTUM_TWEED_TWITTER_ACCESS_TOKEN_SECRET=$(TWEED_TWITTER_ACCESS_TOKEN_SECRET)
-
 web:
 	@$(MAKE) --no-print-directory -C lib/web
 
@@ -20,16 +13,16 @@ deploy:
 	@$(MAKE) up
 
 build:
-	@$(OPTS) td build
+	@td build
 
 push:
-	@$(OPTS) td push
+	@td push
 
 up:
-	@$(OPTS) td up
+	@td up
 
 ps:
-	@$(OPTS) td ps
+	@td ps
 
 deps:
 	@$(MAKE) deps util config --no-print-directory -C lib/web -B
