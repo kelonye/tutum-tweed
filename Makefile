@@ -1,3 +1,7 @@
+run:
+	@fig build
+	@fig up
+
 web:
 	@$(MAKE) --no-print-directory -C lib/web
 
@@ -29,4 +33,4 @@ deps:
 	@$(MAKE) deps util config --no-print-directory -C lib/tweets -B 
 	@$(MAKE) deps util config --no-print-directory -C lib/feeds -B
 
-.PHONY: deps ps up push build deploy feeds tweets web
+.PHONY: deps ps up push build deploy feeds tweets web run

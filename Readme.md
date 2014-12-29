@@ -1,4 +1,4 @@
-[Tweed](http://9d58c4cd-kelonye.node.tutum.io)
+Tweed
 ===
 
 This is a demo of easy deployment of a simple node.js application using [Tutum](http://tutum.co) on [Digital Ocean](http://digitalocean.com). The application is a simple feeds and tweets aggregator for popular tech news sites. Improvements welcomed!
@@ -6,10 +6,6 @@ This is a demo of easy deployment of a simple node.js application using [Tutum](
 ![](https://dl.dropbox.com/u/30162278/tweed.png)
 
 ![](https://dl.dropbox.com/u/30162278/tweed-drawer.png)
-
-#### Demo
-
-Visit [http://9d58c4cd-kelonye.node.tutum.io](http://9d58c4cd-kelonye.node.tutum.io)
 
 #### Deploying
 
@@ -22,7 +18,7 @@ Visit [http://9d58c4cd-kelonye.node.tutum.io](http://9d58c4cd-kelonye.node.tutum
 - Set the following env vars appropriately:
   - TUTUM_USER
   - TUTUM_APIKEY
-  - TWEED_CLUSTER
+  - TWEED_CLUSTER # the cluster name
   - TWEED_TWITTER_CONSUMER_KEY
   - TWEED_TWITTER_CONSUMER_SECRET
   - TWEED_TWITTER_ACCESS_TOKEN
@@ -37,16 +33,7 @@ Visit [http://9d58c4cd-kelonye.node.tutum.io](http://9d58c4cd-kelonye.node.tutum
 
 #### Running locally (WIP)
 
-- Install redis
-- Run the following in 3 separate tabs:
-
-```sh
-
-$ make
-$ make tweets
-$ make feeds
-
-```
+  $ make
 
 #### Licence
 
