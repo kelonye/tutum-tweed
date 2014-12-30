@@ -12,9 +12,7 @@ feeds:
 	@$(MAKE) --no-print-directory -C lib/feeds
 
 deploy:
-	@$(MAKE) build
-	@$(MAKE) push
-	@$(MAKE) up
+	@$(MAKE) build push up
 
 build:
 	@td build

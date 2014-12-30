@@ -33,7 +33,7 @@ This is a demo of easy deployment of a simple node.js application using [Tutum](
 
 #### Running locally (WIP)
 
-  $ make
+    $ make
 
 #### Licence
 
