@@ -1,5 +1,5 @@
 run:
-	@fig build
+	@$(MAKE) build
 	@fig up
 
 web:

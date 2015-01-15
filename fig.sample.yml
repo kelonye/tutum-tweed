@@ -1,25 +1,25 @@
 ---
 
 redis:
-  build: lib/redis
+  image: tutum.co/[user]/redis
 
 tweets:
-  build: lib/tweets
+  image: tutum.co/[user]/tweets
   environment:
     TWEED_TWITTER_CONSUMER_KEY: ""
+    TWEED_TWITTER_ACCESS_TOKEN_SECRET: ""
     TWEED_TWITTER_CONSUMER_SECRET: ""
     TWEED_TWITTER_ACCESS_TOKEN: ""
-    TWEED_TWITTER_ACCESS_TOKEN_SECRET: ""
   links:
     - redis
 
 feeds:
-  build: lib/feeds
+  image: tutum.co/[user]/feeds
   links:
     - redis
 
-- name: web
-  build: lib/web
+web:
+  image: tutum.co/[user]/web
   ports:
     - "5000:80"
   environment:

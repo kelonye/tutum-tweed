@@ -24,16 +24,25 @@ This is a demo of easy deployment of a simple node.js application using [Tutum](
   - TWEED_TWITTER_ACCESS_TOKEN
   - TWEED_TWITTER_ACCESS_TOKEN_SECRET
 - Install [tutum-deploy](https://github.com/kelonye/node-tutum-deploy) with:
-
+    
     $ npm install -g tutum-deploy
+
+Or
+
+    $ docker install kelonye/tutum-deploy
+    $ alias td=$(docker run kelonye/tutum-deploy -v .:/opt/app)
 
 - Run `make deploy` to deploy the services
 - Go to https://dashboard.tutum.co/node/cluster/list
 - Select your new cluster and use the provided hostname to access the app
 
-#### Running locally (WIP)
+#### Running locally
 
-    $ make
+- Copy `fig.sample.yml` to `fig.yml`
+- Fill in the corresponding Twitter app credentials in `fig.yml`
+- Also replace the image username namespace, `[user]` to tutum's
+- Run `make`
+- Visit app on port `5000`
 
 #### Licence
 

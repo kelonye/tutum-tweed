@@ -8,3 +8,4 @@ lib/tweets/config
 lib/tweets/util
 lib/feeds/config
 lib/feeds/util
+fig.yml
