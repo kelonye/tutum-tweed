@@ -1,0 +1,36 @@
+---
+
+- name: APT UPDATE
+  apt: update_cache=yes
+
+- name: INSTALL SYSTEM PACKAGES
+  apt: name={{ item }}
+  with_items:
+    - git
+    - python-pip
+    - build-essential
+    - python-dev
+  sudo: yes
+
+- name: INSTALL FIG
+  pip: name={{ item }}
+  with_items:
+    - fig
+  sudo: yes
+
+- name: CLONE CODE FROM GITHUB
+  git: >
+    repo={{ REPOSITORY_URL }}
+    dest={{ APP_DIR }}
+    version={{BRANCH}}
+    accept_hostkey=yes
+  sudo: no
+
+- name: UPDATE FIG FILE
+  sudo: yes
+  template: >
+    src=../templates/fig.yml
+    dest={{ APP_DIR }}/fig.yml
+
+- name: RESTART SERVICES
+  shell: "make run-production chdir={{ APP_DIR }}"

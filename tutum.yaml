@@ -6,8 +6,6 @@ clusters:
   region: ams2
   type: 512mb
   nodes: 1
-  tags:
-    - tweed
 
 services:
 
@@ -15,8 +13,6 @@ services:
   image: "tutum.co/{{USER}}/redis"
   build: lib/redis
   containers: 1
-  tags:
-    - tweed
 
 - name: tweets
   image: "tutum.co/{{USER}}/tweets"
@@ -29,8 +25,6 @@ services:
     TWEED_TWITTER_ACCESS_TOKEN_SECRET: "{{TWEED_TWITTER_ACCESS_TOKEN_SECRET}}"
   require:
     - redis
-  tags:
-    - tweed
 
 - name: feeds
   image: "tutum.co/{{USER}}/feeds"
@@ -38,8 +32,6 @@ services:
   containers: 1
   require:
     - redis
-  tags:
-    - tweed
 
 - name: web
   image: "tutum.co/{{USER}}/web"
@@ -57,5 +49,3 @@ services:
     PORT: 80
   require:
     - redis
-  tags:
-    - tweed
