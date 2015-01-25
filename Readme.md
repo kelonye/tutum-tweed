@@ -1,7 +1,7 @@
-Tweed
+[Tweed](http://tweedapp.io)
 ===
 
-This is a demo of easy deployment of a simple node.js application using [Tutum](http://tutum.co) on [Digital Ocean](http://digitalocean.com). The application is a simple feeds and tweets aggregator for popular tech news sites. Improvements welcomed!
+This is a [demo](http://tweedapp.io) of easy deployment of a simple node.js application using [Tutum](http://tutum.co) on [Digital Ocean](http://digitalocean.com). The application is a simple feeds and tweets aggregator for popular tech news sites. Improvements welcomed!
 
 ![](https://dl.dropbox.com/u/30162278/tweed.png)
 

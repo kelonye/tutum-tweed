@@ -2,14 +2,16 @@
 
 redis:
   image: tutum.co/[user]/redis
+  volumes_from:
+    - data
 
 tweets:
   image: tutum.co/[user]/tweets
   environment:
     TWEED_TWITTER_CONSUMER_KEY: ""
-    TWEED_TWITTER_ACCESS_TOKEN_SECRET: ""
     TWEED_TWITTER_CONSUMER_SECRET: ""
     TWEED_TWITTER_ACCESS_TOKEN: ""
+    TWEED_TWITTER_ACCESS_TOKEN_SECRET: ""
   links:
     - redis
 
@@ -27,3 +29,8 @@ web:
     PORT: 80
   links:
     - redis
+
+data:
+  image: dockerfile/nodejs
+  volumes:
+    - /var/lib/redis
