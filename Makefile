@@ -15,23 +15,16 @@ build:
 	@$(MAKE) util config --no-print-directory -C lib/feeds -B
 	@td build
 
-deploy:
-	@$(MAKE) build push up
-
-a-deploy:
-	@git push origin master | echo
-	@ansible-playbook -i bin/ansible/inventories/production bin/ansible/up.yml
-
-push:
-	@td push
-
 up:
+	@$(MAKE) build
+	@td push
 	@td up
 
-ps:
-	@td ps
+deploy:
+	@git push origin master | echo
+	@ansible-playbook -i bin/ansible/inventories/production bin/ansible/up.yml
 
 ssh:
 	@ssh root@178.62.234.105
 
-.PHONY: ps up push deploy build run
+.PHONY: ssh deploy up build run-production run

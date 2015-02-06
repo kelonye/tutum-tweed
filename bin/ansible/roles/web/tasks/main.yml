@@ -1,5 +1,11 @@
 ---
 
+- name: UPDATE BASH ALIASES FILE
+  sudo: yes
+  template: >
+    src=../templates/bash_aliases.sh
+    dest={{HOME_DIR}}/.bash_aliases
+
 - name: APT UPDATE
   apt: update_cache=yes
 

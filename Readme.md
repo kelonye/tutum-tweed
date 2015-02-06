@@ -32,7 +32,7 @@ Or
     $ docker install kelonye/tutum-deploy
     $ alias td=$(docker run kelonye/tutum-deploy -v .:/opt/app)
 
-- Run `make deploy` to deploy the services
+- Run `make up` to deploy the services
 - Go to https://dashboard.tutum.co/node/cluster/list
 - Select your new cluster and use the provided hostname to access the app
 

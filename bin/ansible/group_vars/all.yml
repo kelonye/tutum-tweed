@@ -2,3 +2,4 @@ ansible_ssh_user: root
 REPOSITORY_URL: git@github.com:kelonye/tutum-tweed.git
 BRANCH: master
 APP_DIR: "/opt/project"
+HOME_DIR: /root
