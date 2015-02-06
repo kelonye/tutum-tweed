@@ -9,4 +9,4 @@ WORKDIR     redis-3.0.0-rc1
 RUN         make
 EXPOSE      6379
 ADD         . /opt
-CMD         src/redis-server ../redis.conf
+CMD         sysctl vm.overcommit_memory=1 && src/redis-server ../redis.conf
