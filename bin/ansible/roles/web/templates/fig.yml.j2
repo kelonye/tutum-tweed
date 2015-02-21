@@ -1,0 +1,29 @@
+---
+
+redis:
+  build: lib/redis
+
+tweets:
+  build: lib/tweets
+  environment:
+    TWEED_TWITTER_CONSUMER_KEY: "{{ lookup('env', 'TUTUM_TWEED_TWITTER_CONSUMER_KEY') }}"
+    TWEED_TWITTER_CONSUMER_SECRET: "{{ lookup('env', 'TUTUM_TWEED_TWITTER_CONSUMER_SECRET') }}"
+    TWEED_TWITTER_ACCESS_TOKEN: "{{ lookup('env', 'TUTUM_TWEED_TWITTER_ACCESS_TOKEN') }}"
+    TWEED_TWITTER_ACCESS_TOKEN_SECRET: "{{ lookup('env', 'TUTUM_TWEED_TWITTER_ACCESS_TOKEN_SECRET') }}"
+  links:
+    - redis
+
+feeds:
+  build: lib/feeds
+  links:
+    - redis
+
+web:
+  build: lib/web
+  ports:
+    - "80:80"
+  environment:
+    MINIFY: 1
+    PORT: 80
+  links:
+    - redis

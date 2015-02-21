@@ -3,7 +3,7 @@
 - name: UPDATE BASH ALIASES FILE
   sudo: yes
   template: >
-    src=../templates/bash_aliases.sh
+    src=../templates/bash_aliases.j2
     dest={{HOME_DIR}}/.bash_aliases
 
 - name: APT UPDATE
@@ -35,7 +35,7 @@
 - name: UPDATE FIG FILE
   sudo: yes
   template: >
-    src=../templates/fig.yml
+    src=../templates/fig.yml.j2
     dest={{ APP_DIR }}/fig.yml
 
 - name: RESTART SERVICES
