@@ -7,7 +7,7 @@ RUN         tar xzf 3.0.0-rc1.tar.gz
 RUN         rm -f 3.0.0-rc1.tar.gz
 WORKDIR     redis-3.0.0-rc1
 RUN         make
-COPY        supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+ADD         supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 EXPOSE      6379
-ADD         redis.conf /opt
+ADD         redis.conf /opt/redis.conf
 CMD         ["/usr/bin/supervisord"]
