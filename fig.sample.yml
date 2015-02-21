@@ -2,8 +2,6 @@
 
 redis:
   image: tutum.co/[user]/redis
-  volumes_from:
-    - data
 
 tweets:
   image: tutum.co/[user]/tweets
@@ -29,8 +27,3 @@ web:
     PORT: 80
   links:
     - redis
-
-data:
-  image: dockerfile/nodejs
-  volumes:
-    - /var/lib/redis
